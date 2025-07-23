@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trang Chủ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap & Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="TrangChu.css" />
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#myPage">G-World</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#myPage">HOME</a></li>
+          <li><a href="#gioi-thieu">GIỚI THIỆU</a></li>
+          <li><a href="#San-pham">SẢN PHẨM</a></li>
+          <li><a href="#lien-he">LIÊN HỆ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- GIỚI THIỆU -->
+  <section id="gioi-thieu" class="section-content text-center">
+    <h2>✦ G-World ✦</h2>
+    <p>
+      Gundam Shop chuyên cung cấp Gunpla chính hãng Bandai — từ High Grade dễ lắp đến Perfect Grade cực phẩm.<br />
+      Hỗ trợ lắp ráp, và luôn sẵn hàng mẫu hot nhất!
+    </p>
+  </section>
+
+  <!-- CAROUSEL ẢNH GIỮA -->
+  <section id="carousel-section" class="text-center">
+    <div class="carousel-images">
+      <img src="photo tc/z6829502886371_fd2ecdba4bb2738f7d1a05b53e52a7ff.jpg" alt="Ảnh 1" />
+      <img src="photo tc/z6829502891747_baf86e6a1ec580d49b56f849167ccee1.jpg" alt="Ảnh 2" />
+      <img src="photo tc/z6829502894761_3a05f1530bef4c7335bd3735f4eb4c72.jpg" alt="Ảnh 3" />
+    </div>
+  </section>
+
+  <!-- SẢN PHẨM -->
+  <section id="San-pham" class="section-content">
+    <h2 class="product-title">★ SẢN PHẨM</h2>
+    <div class="product-carousel-container">
+      <button class="carousel-arrow left-arrow">&lt;</button>
+      <div class="product-carousel">
+        <div class="product-item"><img src="photo tc/z6829782806189_c3cf3e99032ee461548161422506ab2c.jpg" alt="WUKONG" /><p>WUKONG</p></div>
+        <div class="product-item"><img src="photo tc/z6829754235012_cbeec2a146b4ac30e994f1de6f1efdf9.jpg" alt="Tiêu Dao Tử" /><p>Tiêu Dao Tử</p></div>
+        <div class="product-item"><img src="photo tc/z6830011857193_1fff36547bda5ea1458eddd9a5f16489.jpg" alt="Saber" /><p>Saber</p></div>
+        <div class="product-item"><img src="photo tc/z6830011858652_fcfaa333e9af15298116540a029b7a96.jpg" alt="Kiếm sĩ" /><p>Kiếm sĩ</p></div>
+        <div class="product-item"><img src="photo tc/z6832165701233_56916feca8b67bf401a604393420ba5e.jpg" alt="Dragon" /><p>Dragon</p></div>
+        <div class="product-item"><img src="photo tc/z6832165709525_97f3d1d1c8cda20e828fb17a39175ec8.jpg" alt="Chiến binh" /><p>Chiến binh</p></div>
+      </div>
+      <button class="carousel-arrow right-arrow">&gt;</button>
+    </div>
+  </section>
+
+  <!-- LIÊN HỆ -->
+  <section id="lien-he" class="section-content text-center" style="background-color: #111; color: #fff;">
+    <h2>✉ LIÊN HỆ</h2>
+    <p>Email: nguyenquan03011@gmail.com | Zalo: 034587296</p>
+  </section>
+
+  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".navbar a").on("click", function (event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+          $("html, body").animate({ scrollTop: $(this.hash).offset().top }, 800);
+        }
+      });
+
+      const leftArrow = document.querySelector(".left-arrow");
+      const rightArrow = document.querySelector(".right-arrow");
+      const carousel = document.querySelector(".product-carousel");
+
+      rightArrow.addEventListener("click", () => {
+        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5) {
+          carousel.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          carousel.scrollBy({ left: 300, behavior: "smooth" });
+        }
+      });
+
+      leftArrow.addEventListener("click", () => {
+        if (carousel.scrollLeft <= 0) {
+          carousel.scrollTo({ left: carousel.scrollWidth, behavior: "smooth" });
+        } else {
+          carousel.scrollBy({ left: -300, behavior: "smooth" });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
